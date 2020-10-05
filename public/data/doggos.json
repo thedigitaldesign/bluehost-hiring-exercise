@@ -1,0 +1,19 @@
+{
+  "Doggos": [
+    {
+      "id": "1171c0b9-8e5b-4900-a6b3-11772c7ae9f1",
+      "name": "Bill",
+      "breed": "Bearded Collie"
+    },
+    {
+      "id": "7d3cfe48-bd0a-4209-b3b5-4d85a35053ae",
+      "name": "Ted",
+      "breed": "Afghan Hound"
+    },
+    {
+      "id": "66b93f5b-13a3-4f7e-bcfd-4e390ebfc064",
+      "name": "Speeder",
+      "breed": "Greyhound"
+    }
+  ]
+}

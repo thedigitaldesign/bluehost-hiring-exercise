@@ -1,30 +1,63 @@
-import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
-import Home from "../views/Home.vue";
+import Vue from 'vue'
+import VueRouter, { RouteConfig } from 'vue-router'
 
-Vue.use(VueRouter);
+// Views
+import Dashboard from '@/views/Dashboard.vue'
+import Auth from '@/views/Auth.vue'
+
+// Pages
+import AddDoggo from '@/views/Pages/AddDoggo.vue'
+import Details from '@/views/Pages/Details.vue'
+import Index from '@/views/Pages/Index.vue'
+
+Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
-    path: "/",
-    name: "Home",
-    component: Home
+    name: 'Dashboard',
+    path: '/',
+    component: Dashboard,
+    children: [
+      {
+        name: 'Index',
+        path: '',
+        component: Index
+      },
+      {
+        name: 'Add Doggo',
+        path: '/add-doggo',
+        component: AddDoggo
+      },
+      {
+        name: 'Details',
+        path: '/details/:id',
+        component: Details
+      }
+    ]
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+    name: 'Auth',
+    path: '/auth',
+    component: Auth,
+    children: [
+      {
+        name: 'Login',
+        path: '',
+        component: Details
+      },
+      {
+        name: 'Token',
+        path: '/auth/login/:token',
+        component: Details
+      }
+    ]
   }
-];
+]
 
 const router = new VueRouter({
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
   routes
-});
+})
 
-export default router;
+export default router
